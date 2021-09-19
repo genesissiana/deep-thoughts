@@ -17,13 +17,10 @@ const Profile = props => {
 
   const user = data?.me || data?.user || {};
 
-  // redirect to personal profile page if username is yours
-  if (
-    Auth.loggedIn() &&
-    Auth.getProfile().data.username === userParam
-  ) {
-    return <Redirect to="/profile" />;
-  }
+  // redirect to personal profile page if username is the logged-in user's
+if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+  return <Redirect to="/profile" />;
+}
 
   if (loading) {
     return <div>Loading...</div>;
